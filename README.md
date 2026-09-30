@@ -1,16 +1,190 @@
-# React + Vite
+# Calendar Scheduler
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive calendar scheduling application built with React, providing an interactive interface for creating and managing events across weekly and monthly views.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 🔐 **Authentication**
 
-## React Compiler
+  * Login using DummyJSON authentication API
+  * Protected calendar access
+  * Logout and session handling
+  * Access-token refresh handling
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 📅 **Calendar**
 
-## Expanding the ESLint configuration
+  * Week and Month views
+  * Previous, Next and Today navigation
+  * Date and timezone selection
+  * URL-based calendar state
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* 📝 **Event Management**
+
+  * Create events by dragging across calendar time slots
+  * Create, edit and delete events
+  * 15-minute time-slot snapping
+  * Move events using drag and drop
+  * Resize events
+  * All-day events
+  * Event descriptions
+  * Reminders
+
+* 🔁 **Recurring Events**
+
+  * Daily, weekly and monthly recurrence
+  * Recurrence by count or end date
+  * Edit individual occurrences or recurring series
+
+* 👥 **Attendees**
+
+  * Searchable attendee selection
+  * Multiple attendees
+  * Basic attendee availability / overlap warning
+
+* ↩️ **History**
+
+  * Undo and Redo
+  * Keyboard shortcuts:
+
+    * `Ctrl + Z` — Undo
+    * `Ctrl + Shift + Z` — Redo
+
+* 💾 **Persistence**
+
+  * Events persisted using LocalStorage
+  * Versioned storage schema
+  * Corrupted storage recovery
+
+* 🌐 **API Integration**
+
+  * Axios-based API services
+  * DummyJSON API integration
+  * Centralized Axios configuration
+  * Authentication token handling
+
+## Tech Stack
+
+| Technology   | Usage                             |
+| ------------ | --------------------------------- |
+| React        | Frontend UI                       |
+| JavaScript   | Application logic                 |
+| Tailwind CSS | Styling                           |
+| Axios        | API communication                 |
+| Vite         | Development and build tooling     |
+| DummyJSON    | Authentication and event/user API |
+| LocalStorage | Client-side persistence           |
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── Calendar.jsx
+│   ├── EventDetails.jsx
+│   └── EventForm.jsx
+│
+├── context/
+│   └── CalendarContext.jsx
+│
+├── hooks/
+│   ├── useDragInteraction.js
+│   └── useHistory.js
+│
+├── services/
+│   ├── authService.js
+│   ├── axiosInstance.js
+│   ├── calendarService.js
+│   ├── storageService.js
+│   ├── syncService.js
+│   └── userService.js
+│
+├── utils/
+│   ├── recurrenceUtils.js
+│   ├── timezoneUtils.js
+│   └── urlState.js
+│
+├── App.jsx
+├── Login.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+## Getting Started
+
+### Prerequisites
+
+* Node.js
+* npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Shripad-J/calendar-scheduler.git
+```
+
+Navigate to the project:
+
+```bash
+cd calendar-scheduler
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in the terminal.
+
+## Production Build
+
+Create a production build with:
+
+```bash
+npm run build
+```
+
+The production files are generated in the `dist` directory.
+
+## Authentication
+
+The application uses the DummyJSON authentication API.
+
+Use valid DummyJSON test credentials on the login page.
+
+## API
+
+The application uses the following DummyJSON resources:
+
+* Authentication
+* Users
+* Todos
+
+API base URL:
+
+```text
+https://dummyjson.com
+```
+
+## Notes
+
+* Calendar events are managed on the client side and persisted locally.
+* API interactions are organized into dedicated service files.
+* Calendar dates and times are handled using native JavaScript `Date` and `Intl` APIs.
+
+## Author
+
+**Shripad Joshi**
+
+GitHub: https://github.com/Shripad-J
+
+Repository: https://github.com/Shripad-J/calendar-scheduler
